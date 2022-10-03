@@ -271,6 +271,7 @@ resource "aws_api_gateway_integration" "integration_request_opt" {
   resource_id             = "${aws_api_gateway_resource.writeResource.id}"
   http_method             = "${aws_api_gateway_method.my_api_method_opt_write.http_method}"
   integration_http_method = "OPTIONS"
+  type                    = "MOCK"
 }
 
 resource "aws_api_gateway_method_response" "method_response_opt_200" {
