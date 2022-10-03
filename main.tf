@@ -1,10 +1,18 @@
 #add state to s3 bucket
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.33.0"
+    }
+  }
   required_version = ">= 0.12"
-  backend "s3" {
-    bucket = "myapp-bucket123321"
-    key = "myapp/state.tfstate"
-    region = "us-east-2"
+  backend "remote" {
+    organization = "personal_demos"
+
+    workspaces {
+      name = "week_7_terraform"
+    }
   }
   
 }
