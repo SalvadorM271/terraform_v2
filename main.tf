@@ -209,11 +209,35 @@ output "base_url" {
 
 # possible fix for cors-------------------------------------------------------------------
 
-resource "aws_api_gateway_integration_response" "write_integration_response" {
+resource "aws_api_gateway_method_response" "write_http_status_value" {
   rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
   resource_id = "${aws_api_gateway_resource.writeResource.id}"
   http_method = "${aws_api_gateway_method.writeMethod.http_method}"
   status_code = "200"
+
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+  }
+}
+
+resource "aws_api_gateway_method_response" "read_http_status_value" {
+  rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
+  resource_id = "${aws_api_gateway_resource.readResource.id}"
+  http_method = "${aws_api_gateway_method.readMethod.http_method}"
+  status_code = "200"
+
+
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Origin" = true
+  }
+}
+
+resource "aws_api_gateway_integration_response" "write_integration_response" {
+  rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
+  resource_id = "${aws_api_gateway_resource.writeResource.id}"
+  http_method = "${aws_api_gateway_method.writeMethod.http_method}"
+  status_code = "${aws_api_gateway_method_response.write_http_status_value}"
 
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = "'*'"
@@ -224,7 +248,7 @@ resource "aws_api_gateway_integration_response" "read_integration_response" {
   rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
   resource_id = "${aws_api_gateway_resource.readResource.id}"
   http_method = "${aws_api_gateway_method.readMethod.http_method}"
-  status_code = "200"
+  status_code = "${aws_api_gateway_method_response.read_http_status_value}"
 
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = "'*'"
