@@ -234,15 +234,15 @@ resource "aws_api_gateway_integration_response" "read_integration_response" {
 # add options to both endpoints
 
 resource "aws_api_gateway_method" "my_api_method_opt_write" {
-  rest_api_id      = "${aws_api_gateway_rest_api.my_api.id}"
-  resource_id      = "${aws_api_gateway_resource.my_api_resource.id}"
+  rest_api_id      = "${aws_api_gateway_rest_api.apiLambda.id}"
+  resource_id      = "${aws_api_gateway_resource.readResource.id}"
   http_method      = "OPTIONS"
   authorization    = "NONE"
   api_key_required = false
 }
 
 resource "aws_api_gateway_integration" "integration_request_opt" {
-  depends_on = ["aws_api_gateway_method.my_api_method_opt_write"]
+  depends_on = [aws_api_gateway_method.my_api_method_opt_write]
   rest_api_id             = "${aws_api_gateway_rest_api.apiLambda.id}"
   resource_id             = "${aws_api_gateway_resource.writeResource.id}"
   http_method             = "${aws_api_gateway_method.my_api_method_opt_write.http_method}"
