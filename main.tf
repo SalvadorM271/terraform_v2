@@ -209,7 +209,7 @@ output "base_url" {
 
 # possible fix for cors-------------------------------------------------------------------
 
-/*resource "aws_api_gateway_method_response" "write_http_status_value" {
+resource "aws_api_gateway_method_response" "write_http_status_value" {
   rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
   resource_id = "${aws_api_gateway_resource.writeResource.id}"
   http_method = "${aws_api_gateway_method.writeMethod.http_method}"
@@ -302,4 +302,4 @@ resource "aws_api_gateway_integration_response" "integration_response_opt_200" {
     "method.response.header.Access-Control-Allow-Methods" = "'POST,GET,OPTIONS'",
     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
-}*/
+}
