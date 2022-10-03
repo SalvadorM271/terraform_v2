@@ -272,7 +272,7 @@ resource "aws_api_gateway_integration" "optInt" {
 
    integration_http_method = "OPTIONS"
    type                    = "AWS_PROXY"
-   //uri                     = aws_lambda_function.writeLambda.invoke_arn
+   uri                     = aws_lambda_function.writeLambda.invoke_arn
    
 }
 
