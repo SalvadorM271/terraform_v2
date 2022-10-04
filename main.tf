@@ -23,6 +23,50 @@ provider "aws" {
     region = "us-east-2"
 }
 
+# s3 bucket
+
+/*resource "aws_s3_bucket" "app_website" {
+  bucket = "testapigateway2354"
+}
+
+resource "aws_s3_bucket_acl" "s3_acl" {
+  bucket = aws_s3_bucket.app_website.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_object" "index" {
+  bucket = "testapigateway2354"
+  key    = "index.html"
+  source = "./frontend/index.html"
+  acl = "public-read"
+  content_type = "text/html"
+  etag = filemd5("./frontend/index.html")
+  depends_on = [aws_s3_bucket.app_website]
+}
+
+resource "aws_s3_object" "error" {
+  bucket = "testapigateway2354"
+  key    = "error.html"
+  source = "./frontend/error.html"
+  acl = "public-read"
+  content_type = "text/html"
+  etag = filemd5("./frontend/error.html")
+  depends_on = [aws_s3_bucket.app_website]
+}
+
+resource "aws_s3_bucket_website_configuration" "app_website_config" {
+  bucket = aws_s3_bucket.app_website.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
+  }
+
+}*/
+
 #creates policy to give write permissions to db
 
 resource "aws_iam_role_policy" "write_policy" {
