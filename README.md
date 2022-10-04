@@ -39,7 +39,7 @@ and finally
 
 this api has two endpoints, one for posting data to dynamodb and one for getting an item based on the id, both can be access with postman
 
-the first endpoint is: https://vvm0q5mmol.execute-api.us-east-2.amazonaws.com/Prod/writedb
+the first endpoint is: https://15elz8upu6.execute-api.us-east-2.amazonaws.com/Prod/writedb
 
 to make a sample request the following can be use:
 
@@ -47,7 +47,7 @@ to make a sample request the following can be use:
 
 <img src="./images/put.png" width="450"/>
 
-the second endpoint is: https://vvm0q5mmol.execute-api.us-east-2.amazonaws.com/Prod/readdb
+the second endpoint is: https://15elz8upu6.execute-api.us-east-2.amazonaws.com/Prod/readdb
 
 to make a sample request the following can be use:
 
