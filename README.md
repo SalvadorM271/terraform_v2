@@ -55,6 +55,10 @@ to make a sample request the following can be use:
 
 <img src="./images/get.png" width="450"/>
 
+## Diagram
+
+<img src="./images/diagram.png" width="450"/>
+
 
 
 
