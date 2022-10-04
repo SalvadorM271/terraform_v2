@@ -208,7 +208,7 @@ output "base_url" {
 
 # test
 
-
+/*
 resource "aws_api_gateway_method_response" "write_http_status_value" {
   rest_api_id = "${aws_api_gateway_rest_api.apiLambda.id}"
   resource_id = "${aws_api_gateway_resource.writeResource.id}"
@@ -302,7 +302,7 @@ resource "aws_api_gateway_integration_response" "opt_integration_response" {
     "method.response.header.Access-Control-Allow-Methods" = "'POST,GET,OPTIONS'",
     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
-}
+}*/
 
 
 
